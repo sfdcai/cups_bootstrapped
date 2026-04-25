@@ -22,3 +22,7 @@ cups-files.conf.default
 cupsd.conf.default
 snmp.conf.default
 test-drivers
+
+# local/dev files
+.env
+.codex

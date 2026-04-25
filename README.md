@@ -17,10 +17,35 @@ Reworking the CUPS template files for using Bootstrap CSS framework to make a be
 ### Needs work
 * Just about everything
 
-## Installation
+## Installation (quick)
 
-Tested on Raspbian OS on a Raspberry Pi 3B running as a print server. You should do better than me and backup everything in case of failure. Don't be stupid, don't be like me.
+Tested on Debian/Raspbian-style systems with CUPS installed from apt.
 
-* Place *__doc-root__* and *__templates__* into *__/usr/share/cups__*, overwriting the previous files, at your own risk that is.
-* Download Bootstrap 4.5+ CSS and JS file, extract to *__/usr/share/cups/doc-root/__*, creating *__/bootstrap/js__* and *__/bootstrap/css__* subfolders.
-* Download jQuery 3.5.1+ and place into *__/usr/share/cups/doc-root/bootstrap/js__* folder
+1. Install CUPS packages:
+   `sudo apt update && sudo apt install -y cups cups-client`
+2. Enable and start CUPS:
+   `sudo systemctl enable --now cups`
+3. Backup the original web UI files:
+   `sudo cp -a /usr/share/cups/doc-root /usr/share/cups/doc-root.bak.$(date +%Y%m%d_%H%M%S)`
+   `sudo cp -a /usr/share/cups/templates /usr/share/cups/templates.bak.$(date +%Y%m%d_%H%M%S)`
+4. Copy this repo's UI files into CUPS:
+   `sudo cp -a doc-root /usr/share/cups/`
+   `sudo cp -a templates /usr/share/cups/`
+5. Fix ownership and permissions:
+   `sudo chown -R root:root /usr/share/cups/doc-root /usr/share/cups/templates`
+   `sudo find /usr/share/cups/doc-root /usr/share/cups/templates -type d -exec chmod 755 {} \;`
+   `sudo find /usr/share/cups/doc-root /usr/share/cups/templates -type f -exec chmod 644 {} \;`
+6. Restart CUPS:
+   `sudo systemctl restart cups`
+7. Open the CUPS UI:
+   `http://localhost:631`
+
+## Update to a newer skin version
+
+1. Pull latest repo changes:
+   `git pull`
+2. Re-copy UI assets:
+   `sudo cp -a doc-root /usr/share/cups/`
+   `sudo cp -a templates /usr/share/cups/`
+3. Restart CUPS:
+   `sudo systemctl restart cups`
