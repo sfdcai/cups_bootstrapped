@@ -53,6 +53,40 @@
         </div>
       </div>
 
+      <div class="row mb-4">
+        <div class="col-12">
+          <h2>Auto Schedule</h2>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="theme-mode" class="font-weight-bold">Mode</label>
+          <select id="theme-mode" class="form-control">
+            <option value="manual">Manual</option>
+            <option value="auto">Auto Day/Night</option>
+          </select>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="day-theme-picker" class="font-weight-bold">Day Theme</label>
+          <select id="day-theme-picker" class="form-control"></select>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="night-theme-picker" class="font-weight-bold">Night Theme</label>
+          <select id="night-theme-picker" class="form-control"></select>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="day-start-hour" class="font-weight-bold">Day Starts (0-23)</label>
+          <input id="day-start-hour" type="number" min="0" max="23" class="form-control" />
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="night-start-hour" class="font-weight-bold">Night Starts (0-23)</label>
+          <input id="night-start-hour" type="number" min="0" max="23" class="form-control" />
+        </div>
+        <div class="col-md-9 d-flex align-items-end mb-3">
+          <div class="theme-status-box w-100">
+            <strong id="theme-schedule-label">Manual mode active</strong>
+          </div>
+        </div>
+      </div>
+
       <div class="row" id="theme-card-grid">
         <div class="col-sm-6 col-xl-4 mb-3">
           <button type="button" class="theme-card w-100 text-left" data-theme-option="aurora">

@@ -29,8 +29,8 @@ Tested on Debian/Raspbian-style systems with CUPS installed from apt.
    `sudo cp -a /usr/share/cups/doc-root /usr/share/cups/doc-root.bak.$(date +%Y%m%d_%H%M%S)`
    `sudo cp -a /usr/share/cups/templates /usr/share/cups/templates.bak.$(date +%Y%m%d_%H%M%S)`
 4. Copy this repo's UI files into CUPS:
-   `sudo cp -a doc-root /usr/share/cups/`
-   `sudo cp -a templates /usr/share/cups/`
+   `sudo cp -a doc-root/. /usr/share/cups/doc-root/`
+   `sudo cp -a templates/. /usr/share/cups/templates/`
 5. Fix ownership and permissions:
    `sudo chown -R root:root /usr/share/cups/doc-root /usr/share/cups/templates`
    `sudo find /usr/share/cups/doc-root /usr/share/cups/templates -type d -exec chmod 755 {} \;`
@@ -45,8 +45,8 @@ Tested on Debian/Raspbian-style systems with CUPS installed from apt.
 1. Pull latest repo changes:
    `git pull`
 2. Re-copy UI assets:
-   `sudo cp -a doc-root /usr/share/cups/`
-   `sudo cp -a templates /usr/share/cups/`
+   `sudo cp -a doc-root/. /usr/share/cups/doc-root/`
+   `sudo cp -a templates/. /usr/share/cups/templates/`
 3. Restart CUPS:
    `sudo systemctl restart cups`
 
@@ -57,3 +57,4 @@ This skin includes 10 built-in themes and a runtime theme picker.
 1. Open `http://localhost:631/theme-studio.html`
 2. Pick a theme from cards/dropdown
 3. Theme applies instantly and is saved per-browser using local storage
+4. Enable `Auto Day/Night` mode to schedule day and night themes by hour
