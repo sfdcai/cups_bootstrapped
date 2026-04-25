@@ -49,3 +49,11 @@ Tested on Debian/Raspbian-style systems with CUPS installed from apt.
    `sudo cp -a templates /usr/share/cups/`
 3. Restart CUPS:
    `sudo systemctl restart cups`
+
+## Theme switching
+
+This skin includes 10 built-in themes and a runtime theme picker.
+
+1. Open `http://localhost:631/theme-studio.html`
+2. Pick a theme from cards/dropdown
+3. Theme applies instantly and is saved per-browser using local storage

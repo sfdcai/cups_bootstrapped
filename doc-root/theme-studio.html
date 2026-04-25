@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/cups.css" />
+    <link rel="shortcut icon" href="/apple-touch-icon.png" type="image/png" />
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Theme Studio - CUPS 2.2.10</title>
+  </head>
+  <body class="cups-home">
+    <nav class="navbar navbar-expand-lg navbar-dark cups-navbar">
+      <a class="navbar-brand d-flex align-items-center" href="/">
+        <img src="/images/cups-icon.png" alt="CUPS" width="22" height="22" class="mr-2" />
+        <span>CUPS</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#cupsNav" aria-controls="cupsNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="cupsNav">
+      <ul class="navbar-nav mr-auto text-center">
+        <li class="nav-item"><a class="nav-link" href="/admin">Admin</a></li>
+        <li class="nav-item"><a class="nav-link" href="/classes/">Classes</a></li>
+        <li class="nav-item"><a class="nav-link" href="/jobs/">Jobs</a></li>
+        <li class="nav-item"><a class="nav-link" href="/printers/">Printers</a></li>
+        <li class="nav-item"><a class="nav-link" href="/help/">Help</a></li>
+        <li class="nav-item"><a class="nav-link active" href="/theme-studio.html">Themes</a></li>
+      </ul>
+      <span class="navbar-text d-none d-lg-inline">Web Interface</span>
+      </div>
+    </nav>
+
+    <main id="body" class="container-fluid container-xl py-4">
+      <div class="row">
+        <div class="col-12">
+          <h1>Theme Studio</h1>
+          <p>Pick one of 10 distinct interface skins. Your selection is saved in this browser and applied instantly.</p>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-lg-6 mb-3">
+          <label for="theme-picker" class="font-weight-bold">Theme Selector</label>
+          <select id="theme-picker" class="form-control"></select>
+        </div>
+        <div class="col-lg-6 d-flex align-items-end mb-3">
+          <div class="w-100 d-flex justify-content-between align-items-center theme-status-box">
+            <span>Current theme: <strong id="theme-current-label">Aurora Glass</strong></span>
+            <button id="theme-reset" class="btn btn-outline-primary btn-sm" type="button">Reset Default</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" id="theme-card-grid">
+        <div class="col-sm-6 col-xl-4 mb-3">
+          <button type="button" class="theme-card w-100 text-left" data-theme-option="aurora">
+            <span class="theme-dot"></span>
+            <h2>Aurora Glass</h2>
+            <p>Cool blue gradients with polished panel surfaces.</p>
+          </button>
+        </div>
+        <div class="col-sm-6 col-xl-4 mb-3">
+          <button type="button" class="theme-card w-100 text-left" data-theme-option="terminal">
+            <span class="theme-dot"></span>
+            <h2>Terminal Ops</h2>
+            <p>Dark command-center palette inspired by vintage terminals.</p>
+          </button>
+        </div>
+        <div class="col-sm-6 col-xl-4 mb-3">
+          <button type="button" class="theme-card w-100 text-left" data-theme-option="paper">
+            <span class="theme-dot"></span>
+            <h2>Paper Ledger</h2>
+            <p>Warm paper tones for a print-room documentation look.</p>
+          </button>
+        </div>
+        <div class="col-sm-6 col-xl-4 mb-3">
+          <button type="button" class="theme-card w-100 text-left" data-theme-option="sunset">
+            <span class="theme-dot"></span>
+            <h2>Sunset Metro</h2>
+            <p>Bold orange and coral contrasts with energetic accents.</p>
+          </button>
+        </div>
+        <div class="col-sm-6 col-xl-4 mb-3">
+          <button type="button" class="theme-card w-100 text-left" data-theme-option="forest">
+            <span class="theme-dot"></span>
+            <h2>Forest Console</h2>
+            <p>Earthy green tones with subtle organic depth.</p>
+          </button>
+        </div>
+        <div class="col-sm-6 col-xl-4 mb-3">
+          <button type="button" class="theme-card w-100 text-left" data-theme-option="candy">
+            <span class="theme-dot"></span>
+            <h2>Candy Pop</h2>
+            <p>High-chroma playful UI with bright pink highlights.</p>
+          </button>
+        </div>
+        <div class="col-sm-6 col-xl-4 mb-3">
+          <button type="button" class="theme-card w-100 text-left" data-theme-option="mono">
+            <span class="theme-dot"></span>
+            <h2>Monochrome Ink</h2>
+            <p>Ink-and-paper monochrome style focused on contrast.</p>
+          </button>
+        </div>
+        <div class="col-sm-6 col-xl-4 mb-3">
+          <button type="button" class="theme-card w-100 text-left" data-theme-option="oceanic">
+            <span class="theme-dot"></span>
+            <h2>Oceanic Depth</h2>
+            <p>Deep navy and cyan layering for a maritime look.</p>
+          </button>
+        </div>
+        <div class="col-sm-6 col-xl-4 mb-3">
+          <button type="button" class="theme-card w-100 text-left" data-theme-option="sand">
+            <span class="theme-dot"></span>
+            <h2>Desert Sand</h2>
+            <p>Sand and terracotta palette with low-glare readability.</p>
+          </button>
+        </div>
+        <div class="col-sm-6 col-xl-4 mb-3">
+          <button type="button" class="theme-card w-100 text-left" data-theme-option="royal">
+            <span class="theme-dot"></span>
+            <h2>Royal Velvet</h2>
+            <p>High-contrast jewel tones with luxe dark framing.</p>
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <footer class="container-fluid text-center mt-4 p-3 cups-footer">
+      <small class="text-muted">
+        <a href="http://www.cups.org/" target="_blank">CUPS</a> and the CUPS logo are trademarks of
+        <a href="http://www.apple.com">Apple Inc.</a> Copyright &copy; 2007-2019 Apple Inc. All rights reserved.
+      </small>
+    </footer>
+    <script src="/bootstrap/js/jquery-3.5.1.slim.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/theme-switcher.js"></script>
+  </body>
+</html>
