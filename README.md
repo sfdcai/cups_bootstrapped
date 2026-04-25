@@ -49,6 +49,39 @@ This skin includes 12 built-in themes and a runtime theme picker.
 3. Theme applies instantly and is saved per-browser using local storage
 4. Enable `Auto Day/Night` mode to schedule day and night themes by hour
 
+## Maintenance scheduler (new)
+
+A dedicated page is included for anti-dry-run prints:
+
+1. Open `https://<cups-host-ip>:631/maintenance.html`
+2. Select printer queue
+3. Choose `weekly` or `monthly`
+4. Upload document
+5. Save schedule (optional immediate print)
+
+The page also shows printer telemetry from `printer-status.json`:
+- queue state
+- device URI
+- resolved printer IP
+- model string
+- queued jobs
+- page counter and marker levels when exposed by the device
+
+## Keepalive backend install
+
+The scheduler page depends on a local HTTPS helper API and timers:
+
+1. `sudo ./tools/install_keepalive_stack.sh`
+2. Verify services:
+   `systemctl status cups-keepalive-api.service cups-keepalive.timer cups-printer-snapshot.timer`
+3. API endpoint:
+   `https://<cups-host-ip>:6310/api/status`
+
+Notes:
+- CUPS itself does not expose custom CGI endpoints on this build, so the helper API runs on port `6310`.
+- Browser calls from `https://<cups-host-ip>:631` to `https://<cups-host-ip>:6310` are allowed by CORS in the API service.
+- Some printers do not expose ink levels/page counters via IPP; in that case values appear as `not exposed`.
+
 ## Included themes
 
 1. Aurora Glass

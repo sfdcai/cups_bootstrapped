@@ -1,0 +1,7 @@
+[Unit]
+Description=Write CUPS Printer Status Snapshot JSON
+After=network.target cups.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/cups-printer-snapshot

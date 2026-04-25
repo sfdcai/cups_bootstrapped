@@ -26,3 +26,5 @@ test-drivers
 # local/dev files
 .env
 .codex
+__pycache__/
+*.pyc

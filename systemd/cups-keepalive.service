@@ -1,0 +1,7 @@
+[Unit]
+Description=CUPS Keepalive Print Worker
+After=network.target cups.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/cups-keepalive-worker run

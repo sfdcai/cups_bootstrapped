@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/cups.css" />
+    <link rel="shortcut icon" href="/apple-touch-icon.png" type="image/png" />
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Maintenance Print - CUPS 2.2.10</title>
+  </head>
+  <body class="cups-home">
+    <nav class="navbar navbar-expand-lg navbar-dark cups-navbar">
+      <a class="navbar-brand d-flex align-items-center" href="/">
+        <img src="/images/cups-icon.png" alt="CUPS" width="22" height="22" class="mr-2" />
+        <span>CUPS</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#cupsNav" aria-controls="cupsNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="cupsNav">
+      <ul class="navbar-nav mr-auto text-center">
+        <li class="nav-item"><a class="nav-link" href="/admin">Admin</a></li>
+        <li class="nav-item"><a class="nav-link" href="/classes/">Classes</a></li>
+        <li class="nav-item"><a class="nav-link" href="/jobs/">Jobs</a></li>
+        <li class="nav-item"><a class="nav-link" href="/printers/">Printers</a></li>
+        <li class="nav-item"><a class="nav-link" href="/help/">Help</a></li>
+        <li class="nav-item"><a class="nav-link" href="/theme-studio.html">Themes</a></li>
+        <li class="nav-item"><a class="nav-link active" href="/maintenance.html">Maintenance</a></li>
+      </ul>
+      <span class="navbar-text d-none d-lg-inline">Web Interface</span>
+      </div>
+    </nav>
+
+    <main id="body" class="container-fluid container-xl py-4">
+      <div class="row mb-3">
+        <div class="col-12">
+          <h1>Maintenance Print Scheduler</h1>
+          <p>Upload a file and schedule recurring weekly/monthly keepalive prints so ink does not dry up.</p>
+          <p><strong>API endpoint:</strong> <code>https://&lt;this-host&gt;:6310/api</code></p>
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col-lg-8 mb-3">
+          <div class="theme-status-box">
+            <h2 class="h4 mb-3">Schedule Keepalive Print</h2>
+            <form id="keepalive-form" enctype="multipart/form-data">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="ka-printer">Printer Queue</label>
+                  <select id="ka-printer" name="printer" class="form-control" required></select>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="ka-frequency">Frequency</label>
+                  <select id="ka-frequency" name="frequency" class="form-control" required>
+                    <option value="weekly">Weekly</option>
+                    <option value="monthly">Monthly</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="ka-document">Document</label>
+                <input id="ka-document" name="document" class="form-control-file" type="file" required />
+              </div>
+              <div class="form-check mb-3">
+                <input id="ka-print-now" name="print_now" value="1" class="form-check-input" type="checkbox" />
+                <label class="form-check-label" for="ka-print-now">Also print immediately after saving schedule</label>
+              </div>
+              <button class="btn btn-primary" type="submit">Upload and Save Schedule</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="col-lg-4 mb-3">
+          <div class="theme-status-box h-100">
+            <h2 class="h4 mb-3">Quick Actions</h2>
+            <button id="run-now" class="btn btn-outline-primary btn-block mb-2" type="button">Run Scheduled Print Now</button>
+            <button id="disable-schedule" class="btn btn-outline-danger btn-block mb-2" type="button">Disable Schedule</button>
+            <button id="refresh-status" class="btn btn-outline-secondary btn-block" type="button">Refresh Status</button>
+            <hr />
+            <p class="mb-1"><strong>Scheduler Status</strong></p>
+            <pre id="schedule-status" class="small mb-0">Loading...</pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 mb-3">
+          <h2>Printer Telemetry</h2>
+          <p>Live data from CUPS and IPP snapshot (<code>/printer-status.json</code>).</p>
+        </div>
+        <div class="col-12">
+          <div id="printer-cards" class="row"></div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="container-fluid text-center mt-4 p-3 cups-footer">
+      <small class="text-muted">
+        <a href="http://www.cups.org/" target="_blank">CUPS</a> and the CUPS logo are trademarks of
+        <a href="http://www.apple.com">Apple Inc.</a> Copyright &copy; 2007-2019 Apple Inc. All rights reserved.
+      </small>
+    </footer>
+    <script src="/bootstrap/js/jquery-3.5.1.slim.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/theme-switcher.js"></script>
+    <script src="/maintenance.js"></script>
+  </body>
+</html>

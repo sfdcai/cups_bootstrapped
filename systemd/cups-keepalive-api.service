@@ -1,0 +1,12 @@
+[Unit]
+Description=CUPS Keepalive HTTPS API
+After=network.target cups.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/cups-keepalive-api
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
