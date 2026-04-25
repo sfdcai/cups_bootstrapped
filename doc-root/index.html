@@ -2,6 +2,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/cups.css" />
     <link rel="shortcut icon" href="/apple-touch-icon.png" type="image/png" />
     <meta charset="utf-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -9,15 +10,17 @@
     <meta name="viewport" content="width=device-width" />
     <title>Home - CUPS 2.2.10</title>
   </head>
-  <body>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-      <a class="navbar-brand" href="/">CUPS Home</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <body class="cups-home">
+    <nav class="navbar navbar-expand-lg navbar-dark cups-navbar">
+      <a class="navbar-brand d-flex align-items-center" href="/">
+        <img src="/images/cups-icon.png" alt="CUPS" width="22" height="22" class="mr-2" />
+        <span>CUPS</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#cupsNav" aria-controls="cupsNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse" id="cupsNav">
       <ul class="navbar-nav mr-auto text-center">
-        <li class="nav-item"></li>
         <li class="nav-item"><a class="nav-link" href="/admin">Admin</a></li>
         <li class="nav-item">
           <a class="nav-link" href="/classes/">Classes</a>
@@ -30,11 +33,12 @@
           <a class="nav-link" href="/help/">Help</a>
         </li>
       </ul>
+      <span class="navbar-text d-none d-lg-inline">Web Interface</span>
       </div>
     </nav>
-    <div class="container mt-2">
-      <div class="row my-5">
-        <div class="container">
+    <main id="body" class="container-fluid container-xl py-4">
+      <div class="row mt-2 mb-4">
+        <div class="container-fluid">
           <h1>CUPS 2.2.10</h1>
           <p>
             CUPS is the standards-based, open source printing system developed by
@@ -82,8 +86,8 @@
           </p>
         </div>
       </div>
-    </div>
-    <footer class="container-fluid text-center mt-5 p-2">
+    </main>
+    <footer class="container-fluid text-center mt-4 p-3 cups-footer">
         <small class="text-muted">
           <a href="http://www.cups.org/" target="_blank">CUPS</a> and the CUPS
           logo are trademarks of
