@@ -3,9 +3,10 @@
 Custom CUPS web UI skin built on Bootstrap with:
 - Modernized shared layout and navigation
 - Theme Studio page
-- 10 distinct themes/skins
+- 12 distinct themes/skins
 - Runtime theme switcher across pages
 - Optional automatic day/night theme scheduling
+- Maintenance scheduler page for recurring anti-dry-up prints
 
 ## Installation (quick)
 
@@ -81,6 +82,19 @@ Notes:
 - CUPS itself does not expose custom CGI endpoints on this build, so the helper API runs on port `6310`.
 - Browser calls from `https://<cups-host-ip>:631` to `https://<cups-host-ip>:6310` are allowed by CORS in the API service.
 - Some printers do not expose ink levels/page counters via IPP; in that case values appear as `not exposed`.
+
+## Maintenance verification
+
+Run these checks on the CUPS host:
+
+1. Page is served:
+   `curl -k -I https://<cups-host-ip>:631/maintenance.html`
+2. API is reachable:
+   `curl -k https://<cups-host-ip>:6310/api/status`
+3. Snapshot is updated:
+   `curl -k https://<cups-host-ip>:631/printer-status.json`
+4. Timer/API services are active:
+   `systemctl is-active cups-keepalive-api.service cups-keepalive.timer cups-printer-snapshot.timer`
 
 ## Included themes
 
