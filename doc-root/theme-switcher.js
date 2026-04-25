@@ -23,7 +23,9 @@
     { id: 'mono', label: 'Monochrome Ink' },
     { id: 'oceanic', label: 'Oceanic Depth' },
     { id: 'sand', label: 'Desert Sand' },
-    { id: 'royal', label: 'Royal Velvet' }
+    { id: 'royal', label: 'Royal Velvet' },
+    { id: 'brutal', label: 'Neo Brutalist' },
+    { id: 'zen', label: 'Zen Garden' }
   ];
 
   function getStorageItem(key, fallback) {

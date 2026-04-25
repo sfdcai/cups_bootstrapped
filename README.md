@@ -42,7 +42,7 @@ Tested on Debian/Raspbian-style systems with CUPS installed from apt.
 
 ## Theme Studio
 
-This skin includes 10 built-in themes and a runtime theme picker.
+This skin includes 12 built-in themes and a runtime theme picker.
 
 1. Open `https://<cups-host-ip>:631/theme-studio.html`
 2. Pick a theme from cards/dropdown
@@ -61,6 +61,8 @@ This skin includes 10 built-in themes and a runtime theme picker.
 8. Oceanic Depth
 9. Desert Sand
 10. Royal Velvet
+11. Neo Brutalist
+12. Zen Garden
 
 ## Auto day/night scheduling
 
