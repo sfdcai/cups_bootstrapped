@@ -25,7 +25,32 @@
     { id: 'sand', label: 'Desert Sand' },
     { id: 'royal', label: 'Royal Velvet' },
     { id: 'brutal', label: 'Neo Brutalist' },
-    { id: 'zen', label: 'Zen Garden' }
+    { id: 'zen', label: 'Zen Garden' },
+    { id: 'bs-cerulean', label: 'Bootswatch: Cerulean' },
+    { id: 'bs-cosmo', label: 'Bootswatch: Cosmo' },
+    { id: 'bs-cyborg', label: 'Bootswatch: Cyborg' },
+    { id: 'bs-darkly', label: 'Bootswatch: Darkly' },
+    { id: 'bs-flatly', label: 'Bootswatch: Flatly' },
+    { id: 'bs-journal', label: 'Bootswatch: Journal' },
+    { id: 'bs-litera', label: 'Bootswatch: Litera' },
+    { id: 'bs-lumen', label: 'Bootswatch: Lumen' },
+    { id: 'bs-lux', label: 'Bootswatch: Lux' },
+    { id: 'bs-materia', label: 'Bootswatch: Materia' },
+    { id: 'bs-minty', label: 'Bootswatch: Minty' },
+    { id: 'bs-morph', label: 'Bootswatch: Morph' },
+    { id: 'bs-pulse', label: 'Bootswatch: Pulse' },
+    { id: 'bs-quartz', label: 'Bootswatch: Quartz' },
+    { id: 'bs-sandstone', label: 'Bootswatch: Sandstone' },
+    { id: 'bs-simplex', label: 'Bootswatch: Simplex' },
+    { id: 'bs-sketchy', label: 'Bootswatch: Sketchy' },
+    { id: 'bs-slate', label: 'Bootswatch: Slate' },
+    { id: 'bs-solar', label: 'Bootswatch: Solar' },
+    { id: 'bs-spacelab', label: 'Bootswatch: Spacelab' },
+    { id: 'bs-superhero', label: 'Bootswatch: Superhero' },
+    { id: 'bs-united', label: 'Bootswatch: United' },
+    { id: 'bs-vapor', label: 'Bootswatch: Vapor' },
+    { id: 'bs-yeti', label: 'Bootswatch: Yeti' },
+    { id: 'bs-zephyr', label: 'Bootswatch: Zephyr' }
   ];
 
   function getStorageItem(key, fallback) {
@@ -194,6 +219,20 @@
   function applyTheme(themeId) {
     var safe = safeTheme(themeId, DEFAULT_THEME);
     document.body.setAttribute('data-theme', safe);
+
+    var bsLink = document.getElementById('bootswatch-theme');
+    if (safe.startsWith('bs-')) {
+      var themeName = safe.substring(3);
+      if (!bsLink) {
+        bsLink = document.createElement('link');
+        bsLink.id = 'bootswatch-theme';
+        bsLink.rel = 'stylesheet';
+        document.head.appendChild(bsLink);
+      }
+      bsLink.href = 'https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/' + themeName + '/bootstrap.min.css';
+    } else if (bsLink) {
+      bsLink.parentNode.removeChild(bsLink);
+    }
 
     var select = document.getElementById('theme-picker');
     if (select && select.value !== safe) {
