@@ -30,7 +30,9 @@
   --cups-sidebar-border: #deebfa;
   --cups-footer-link: #294f8c;
   --cups-footer-link-hover: #1c3c6b;
-  --cups-shadow: 0 12px 28px rgba(23, 42, 82, 0.09);
+  --cups-shadow: 0 15px 35px rgba(0, 0, 0, 0.1), 0 5px 15px rgba(0,0,0,0.05);
+  --cups-glass-bg: rgba(255, 255, 255, 0.85);
+  --cups-glass-border: rgba(255, 255, 255, 0.4);
 }
 
 body.cups-shell,
@@ -42,9 +44,14 @@ body.cups-home {
 }
 
 .cups-navbar {
-  background: linear-gradient(90deg, var(--cups-navbar-start), var(--cups-navbar-end));
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  background: linear-gradient(90deg, rgba(16, 42, 67, 0.9), rgba(31, 60, 103, 0.9));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .cups-navbar .navbar-brand,
@@ -59,6 +66,7 @@ body.cups-home {
   color: var(--cups-navbar-link) !important;
   margin: 0.15rem;
   padding: 0.45rem 0.8rem !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .cups-navbar .nav-link:hover,
@@ -75,12 +83,20 @@ body.cups-home {
 }
 
 #body {
-  background: var(--cups-panel-bg);
-  border: 1px solid var(--cups-panel-border);
-  border-radius: 1rem;
+  background: var(--cups-glass-bg, var(--cups-panel-bg));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--cups-glass-border, var(--cups-panel-border));
+  border-radius: 1.25rem;
   box-shadow: var(--cups-shadow);
-  margin-top: 1.25rem;
+  margin-top: 1.5rem;
   min-height: 72vh;
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#body:hover {
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12), 0 8px 20px rgba(0,0,0,0.06);
 }
 
 #body h1,
