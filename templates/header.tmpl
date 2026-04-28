@@ -10,36 +10,21 @@
     {refresh_page?<meta http-equiv="refresh" content="{refresh_page}">:}
     <meta http-equiv="X-UA-Compatible" content="IE=9">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <style>html{display:none;}</style>
-    <script type="text/javascript">
-      /* Only display document if we are not in a frame... */
-      if (self == top) {
-        document.documentElement.style.display = 'block';
-      } else {
-        top.location = self.location;
-      }
 
-      /* Show an error if cookies are disabled */
-      function check_cookies() {
-        var bodyElement = document.getElementById('body');
-        if (!navigator.cookieEnabled && bodyElement) {
-              bodyElement.innerHTML = 'This page uses cookies to prevent common cross-site attacks. Please enable cookies in your browser.';
-        }
-      }
-      </script>
+
     <title>{title} - CUPS 2.2.10</title>
   </head>
-  <body class="cups-shell" onload="check_cookies();">
+  <body class="cups-shell">
     <nav class="navbar navbar-expand-lg navbar-dark cups-navbar">
       <a class="navbar-brand d-flex align-items-center" href="/">
         <img src="/images/cups-icon.png" alt="CUPS" width="22" height="22" class="mr-2">
         <span>CUPS</span>
       </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#cupsNav" aria-controls="cupsNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#cupsNav" aria-controls="cupsNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="cupsNav">
-        <ul class="navbar-nav mr-auto text-center">
+        <ul class="navbar-nav me-auto text-center">
           <li class="nav-item">
             <a href="/admin" {SECTION=admin?class="nav-link active":class="nav-link"}>Admin</a>
           </li>

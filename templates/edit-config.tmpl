@@ -1,9 +1,4 @@
-<script type="text/javascript">
-function reset_config()
-{
-  document.cups.CUPSDCONF.value = "{?cupsdconf_default}";
-}
-</script>
+<script src="/cups-templates.js"></script>
 
 <h2 class="title">Edit Configuration File</h2>
 
@@ -15,6 +10,6 @@ function reset_config()
 
 <p><input type="SUBMIT" class="btn btn btn btn-outline-primary" name="SAVECHANGES" value="Save Changes">
 <input type="BUTTON" class="btn btn btn btn-outline-primary" value="Use Default Configuration File"
-onClick="reset_config();"></p>
+onClick="reset_config('{?cupsdconf_default}');"></p>
 
 </form>

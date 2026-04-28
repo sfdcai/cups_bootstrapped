@@ -6,16 +6,6 @@
 <input type="HIDDEN" name="OP" value="{op}">
 {HAVE_AUTOCONFIGURE?<input type="SUBMIT" name="AUTOCONFIGURE" value="Query Printer for Default Options">:}
 
-<script type="text/javascript">
-function update_paramtable(option)
-{
-  var cb = document.getElementById("select-" + option)
-  var paramstable = document.getElementById(option + "-params");
-  if (cb.value == "Custom")
-    paramstable.style.display = "table";
-  else
-    paramstable.style.display = "none";
-}
-</script>
+<script src="/cups-templates.js"></script>
 
 <h3>{[group_id]</h3>
